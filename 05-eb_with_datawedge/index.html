@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</script>
+</HEAD>
+<BODY>
+Scanning via Enterprise Browser and DataWedge
+<P>
+<div id="scanOutput" style="font-size:20px">
+Barcode scans:<br>
+</div>
+<script>
+   (function() {
+
+        // Poll for EB to come into existence
+        var checkReady = function(callback) {
+            if (window.EB) {
+                callback(EB);
+            }
+            else {
+                window.setTimeout(function() { checkReady(callback); }, 100); //check here
+            }
+        };
+        // Start polling...
+        checkReady(function(EB) {
+			EB.Intent.startListening(function(intent) {
+              barcodeAsJson = intent.data;
+              source = barcodeAsJson['com.symbol.datawedge.source'];
+              receivedBarcode(barcodeAsJson['com.symbol.datawedge.data_string']);
+          })
+        });
+    })();
+		  
+function receivedBarcode(text)
+{
+	document.getElementById('scanOutput').innerHTML += text + "<BR>";
+}
+</script>
+</BODY>
+</HTML>

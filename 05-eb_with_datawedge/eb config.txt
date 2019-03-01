@@ -1,0 +1,1 @@
+adb push Config.xml /storage/sdcard0/Android/data/com.symbol.enterprisebrowser/Config.xml 
