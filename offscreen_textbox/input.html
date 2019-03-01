@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<!--  Based on https://stackoverflow.com/questions/54768603/how-to-catch-input-on-documentkeypress-on-window-in-javascript-from-zebra-mc33 -->
+<script src="./jquery-3.3.1.min.js">
+
+</script>
+<style>
+.scanner-input{position:absolute;left:-10000px;}
+</style>
+</HEAD>
+<BODY>
+<input type="text" class="scanner-input">
+Scanning via offscreen textbox
+<div id="scanOutput" style="font-size:20px">
+
+</div>
+<script>
+$(document).ready(function(){
+	 $(".scanner-input").focus().on("input",function(){
+          let barcode = $(this).val();
+          console.log(barcode);
+		  scanOutput.innerHTML = "<p>Scan: " + barcode + "</p>" + scanOutput.innerHTML;
+          $(this).val("");
+     }).blur(function(){
+         $(this).focus();
+     });
+});
+</script>
+</BODY>
+</HTML>
