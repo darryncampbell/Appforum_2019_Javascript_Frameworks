@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+</style>
+</HEAD>
+<BODY>
+Capture keytroke data via Keypress
+<P>
+Use this page in conjunction with DataWedge profile intercharacter_return which contains Keystroke ADF rule 'send_returns'.  This expects a barcode of 13 characters to be scanned.  A special chacter '@' (arbitrary choice) is used to determine the line break and cannot be part of the barcode.
+<br>
+<div id="scanOutput" style="font-size:20px">
+
+
+</div>
+<script>
+const log = document.getElementById('scanOutput');
+//document.addEventListener('keydown', logKey);
+document.addEventListener('keypress', logKey);
+function logKey(e) {
+  if (e.keyCode == 64)
+	log.innerHTML += "<BR>";
+  else
+    log.innerHTML += e.key;
+}
+</script>
+</BODY>
+</HTML>
