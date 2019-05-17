@@ -1,2 +1,7 @@
-# Appforum_2019_Javascript_Frameworks
-Simple app(s) related to AppForum 2019
+# Appforum 2019: JavaScript Frameworks
+
+*These applications are provided without guarantee or warranty*
+=========================================================
+
+This repository contains files related to the presentation on developing JavaScript based applications for Zebra Android devices given at AppForum 2019
+
